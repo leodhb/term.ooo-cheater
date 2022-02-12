@@ -1,0 +1,11 @@
+{
+	"name": "Term.ooo cheat",
+	"description": "Extensão que descobre a palavra diária do term.ooo",
+	"version": "1.0",
+	"manifest_version": 2,
+	"permissions": ["contextMenus", "activeTab"],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": false
+	}
+}
