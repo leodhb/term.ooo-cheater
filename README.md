@@ -1,4 +1,4 @@
-# Term.ooo cheater
+# Term.ooo solver
 Term.ooo is the portuguese version of Wordle, and this simple extension guess the word of the current day 
 
 # The Algorithym:
