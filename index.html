@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Term.ooo - Palavra de hoje</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <!-- Search Engine -->
+  <meta name="description" content="Descubra qual é a palavra de hoje no Term.ooo">
+  <!-- Schema.org for Google -->
+  <meta itemprop="name" content="Term.ooo - Palavra de hoje">
+  <meta itemprop="description" content="Descubra qual é a palavra de hoje no Term.ooo">
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Term.ooo - Palavra de hoje">
+  <meta name="twitter:description" content="Descubra qual é a palavra de hoje no Term.ooo">
+  <meta name="twitter:site" content="@leodsu">
+  <meta name="twitter:creator" content="@leodsu">
+  <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+  <meta name="og:title" content="Term.ooo - Palavra de hoje">
+  <meta name="og:description" content="Descubra qual é a palavra de hoje no Term.ooo">
+  <meta name="og:url" content="https://leodhb.github.io/term.ooo-solver">
+  <meta name="og:site_name" content="Term.ooo - Palavra de hoje">
+  <meta name="og:locale" content="pt_BR">
+  <meta name="og:type" content="website">
+</head>
+
+<body>
+  <main class="container">
+    <header class="row text-center mb-4 mt-4">
+      <h1>A palavra de hoje é:</h1>
+    </header>
+    <section class="row no-gutters justify-content-center">
+      <article class="col-lg-1 col-md-2 col">
+        <div class="square">
+          <p id="tile-letter-1" class="tile-letter">
+      
+          </p>
+        </div>
+      </article>
+      <article class="col-lg-1 col-md-2 col">
+        <div class="square">
+          <p id="tile-letter-2" class="tile-letter">
+      
+          </p>
+        </div>
+      </article>
+      <article class="col-lg-1 col-md-2 col">
+        <div class="square">
+          <p id="tile-letter-3" class="tile-letter">
+    
+          </p>
+        </div>
+      </article>
+      <article class="col-lg-1 col-md-2 col">
+        <div class="square">
+          <p id="tile-letter-4" class="tile-letter">
+      
+          </p>
+        </div>
+      </article>
+      <article class="col-lg-1 col-md-2 col">
+        <div class="square">
+          <p id="tile-letter-5" class="tile-letter">
+      
+          </p>
+        </div>
+      </article>
+    </section>
+    <footer class="row justify-content-center mt-4">
+      <div class="col-lg-5 col text-center">
+        <a href="https://term.ooo" class="btn btn-light" target="_blank">
+          Jogue Term.ooo agora!
+        </a>
+        <a href="https://github.com/leodhb/term.ooo-solver/archive/refs/tags/1.0.0.zip" class="btn btn-light" target="_blank">
+          Extensão para o Chrome
+        </a>
+        <a href="https://github.com/leodhb/term.ooo-solver" class="btn btn-light" target="_blank">
+          Gódigo-fonte
+        </a>
+      </div>
+    </footer>
+  </main>
+</body>
+<script>
+  	const guessWord = () => {
+		fetch(
+			'https://gist.githubusercontent.com/un-versed/6373912fbf4649704b6823ea696cfcb1/raw/629137a0d0c7160b94c35013df8d570b31100174/termooo-wordsv2.json',
+			{ method: 'GET' }
+		).then(data => data.json()).then(words => {
+
+			const daysAfterInitialDate = () => {
+				const today = new Date().setHours(0, 0, 0, 0);
+				const initialDay = new Date(2021, 11, 29, 0, 0, 0, 0);
+				const dayInSeconds = 864e5;
+				return Math.floor((today - initialDay) / dayInSeconds);
+			}
+
+			const solution = words[daysAfterInitialDate() % words.length]
+      for(let i = 0 ; i < solution.length ; i++) {
+        console.log('cu');
+        document.getElementById(`tile-letter-${(i+1)}`).innerHTML = solution.charAt(i).toUpperCase();
+      }
+		})
+	}
+  guessWord();
+</script>
+</html>

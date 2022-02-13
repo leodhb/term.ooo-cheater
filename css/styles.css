@@ -1,0 +1,28 @@
+html {
+    background-color: #6e5c62;
+    min-height: 100vh;
+}
+
+body {
+    background-color: transparent !important;
+    color: white !important;
+}
+
+
+.square {
+    padding-bottom: 100%;
+    border: .2em solid #4c4347;
+    border-radius: 10px;
+    position: relative;
+
+    background-color: #3aa394;
+}
+
+.tile-letter {
+    position: absolute;
+    font-size: 3rem;
+    font-weight: 800;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
